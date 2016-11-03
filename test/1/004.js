@@ -8,7 +8,7 @@
 
 const expect = require('chai').expect;
 
-const { isPalindromic, reverse } = require('../../Solutions/1/004');
+const { isPalindromic, reverse, discover } = require('../../Solutions/1/004');
 
 describe('004 Solution', function () {
   describe('isPalindromic', function () {
@@ -44,4 +44,17 @@ describe('004 Solution', function () {
       expect(reverse('90')).to.be.equal('09');
     })
   });
+
+  describe('discover', function () {
+    it('should take value and return biggest palindromic number generated ' +
+      'by multiplying value with a value lower than itself', function () {
+        expect(discover(99)).to.be.equal(9009);
+      });
+  });
+
+  describe('solution', function() {
+    it('should be 906609', function (){
+      expect(discover(999)).to.be.equal(906609);
+    })
+  })
 });

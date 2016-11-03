@@ -44,4 +44,24 @@ function isPalindromic (value) {
   return firstPart === reverse(secondPart);
 }
 
-module.exports = {isPalindromic, reverse};
+function discover (value) {
+  let factor;
+  let result = 0;
+  let current;
+  for (factor = value ; factor > 1 ; factor--) {
+    for (let i = factor - 1; i > 1 ; i--) {
+      current = factor * i;
+      if (isPalindromic(current) && current > result) {
+        result = current;
+      }
+    }
+  }
+  return result;
+}
+
+if (require.main === module) {
+    console.log(discover(999));
+}
+
+
+module.exports = {isPalindromic, reverse, discover};
